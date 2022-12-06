@@ -65,7 +65,7 @@ void buildUpTension() {
       digitalWrite(i+1, LOW);
     }
     digitalWrite(i, HIGH);
-    delay(100);
+    delay(10);
   }
 }
 

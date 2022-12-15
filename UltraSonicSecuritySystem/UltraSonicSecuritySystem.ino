@@ -33,7 +33,7 @@ void loop() {
   durationindigit = pulseIn(echoPin, HIGH);
   distanceincm = (durationindigit/5) / 29.1;
  
-  if (distanceincm < 11) {
+  if (distanceincm <= 10 && distanceincm >= 7) {
       digitalWrite(LEDlampGreen, HIGH);
       Serial.println("Getting close proceed with caution");
 }
@@ -41,15 +41,17 @@ void loop() {
       digitalWrite(LEDlampGreen, LOW);
   }
   
-  if (distanceincm < 7) {
+  if (distanceincm <= 6 && distanceincm >= 4) {
     digitalWrite(LEDlampYellow, HIGH);
+    Serial.println("You are very close procceed with caution");
 }
   else {
     digitalWrite(LEDlampYellow,LOW);
   }
-  if (distanceincm < 4) {
+  if (distanceincm <= 3 && distanceincm >= 0) {
     digitalWrite(LEDlampRed, HIGH);
     tone(soundBuzzer, sound);
+    Serial.println("Stop! you are very close");
 }
   else {
     digitalWrite(LEDlampRed,LOW);

@@ -11,7 +11,7 @@ int LEDlampRed = 4;
 int LEDlampYellow = 5;
 int LEDlampGreen = 6;
 int soundBuzzer = 7;
-int sound = 1000;
+int sound = 1500;
 
 
 void setup() {
@@ -48,7 +48,7 @@ void loop() {
   else {
     digitalWrite(LEDlampYellow,LOW);
   }
-  if (distanceincm <= 3 && distanceincm >= 0) {
+  if (distanceincm <= 3 && distanceincm >= 1) {
     digitalWrite(LEDlampRed, HIGH);
     tone(soundBuzzer, sound);
     Serial.println("Stop! you are very close");

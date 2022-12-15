@@ -12,7 +12,8 @@ int LEDlampYellow = 5;
 int LEDlampGreen = 6;
 int soundBuzzer = 7;
 int sound = 1500;
-
+int soundGreen = 500;
+int soundYellow = 1000;
 
 void setup() {
   Serial.begin (9600);
@@ -35,6 +36,7 @@ void loop() {
  
   if (distanceincm <= 15 && distanceincm >= 10) {
       digitalWrite(LEDlampGreen, HIGH);
+      tone(soundBuzzer, soundGreen);
       Serial.println("Getting close proceed with caution");
 }
   else {
@@ -43,6 +45,7 @@ void loop() {
   
   if (distanceincm <= 9 && distanceincm >= 6) {
     digitalWrite(LEDlampYellow, HIGH);
+    tone(soundBuzzer, soundYellow);
     Serial.println("You are very close procceed with caution");
 }
   else {
@@ -69,5 +72,5 @@ void loop() {
     
   }
   
-  delay(300);
+  delay(1000);
 }
